@@ -1,3 +1,5 @@
+# TODO: Generate Makefile
+
 CFLAGS=-fPIC -I. -O2 -DCLD_WINDOWS
 LDFLAGS=-L.
 CC=g++
@@ -21,7 +23,8 @@ SOURCES = encodings/compact_lang_det/cldutil.cc \
           encodings/compact_lang_det/win/cld_utf8statetable.cc \
           encodings/compact_lang_det/win/cld_utf8utils_windows.cc \
           encodings/internal/encodings.cc \
-          languages/internal/languages.cc
+          languages/internal/languages.cc \
+          language_detection.cc
 
 install:
 		rm -f *.o
