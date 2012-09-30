@@ -16,4 +16,12 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+  gem.extensions    = ["ext/cld/extconf.rb"]
+
+  gem.add_dependency "ffi"
+  gem.add_dependency "hashr"
+
+  gem.add_development_dependency "shoulda"
+  gem.add_development_dependency "mocha"
+  gem.add_development_dependency "turn"
 end
