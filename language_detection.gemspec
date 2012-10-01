@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = LanguageDetection::VERSION
   gem.authors       = ["Vojtech Hyza"]
   gem.email         = ["vhyza@vhyza.eu"]
-  gem.description   = %q{Language detection}
-  gem.summary       = %q{Wrapped Chrome's compact language detector}
-  gem.homepage      = ""
+  gem.description   = %q{Ruby bindings for Chromium Compact Language Detector}
+  gem.summary       = %q{Ruby bindings for Chromium Compact Language Detector}
+  gem.homepage      = "https://github.com/vhyza/language_detection"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
