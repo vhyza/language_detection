@@ -22,15 +22,15 @@ Or install it yourself as:
 >> require 'language_detection'
 => true
 >> language = LanguageDetection.perform("This is some example text for language detection")
-=> {:name=>"ENGLISH", :code=>"en", :reliable=>true, :text_bytes=>51, :details=>[{:name=>"ENGLISH", :code=>"en", :percent=>100, :score=>49.43273905996759}]}
+=> #<LanguageDetection::Language:0x007fae0404f628 @name="english", @code="en", @reliable=true, @text_bytes=51, @details=[#<LanguageDetection::Language:0x007fae0404eb10 @name="english", @code="en", @details=[], @percent=100, @score=49.43273905996759>]>
 >> language.name
-=> "ENGLISH"
+=> "english"
 >> language.code
 => "en"
 >> language.reliable
 => true
 >> language.details # contains up to 3 languages sorted by score
-=> [{:name=>"ENGLISH", :code=>"en", :percent=>100, :score=>49.43273905996759}]
+=> [#<LanguageDetection::Language:0x007fae0404eb10 @name="english", @code="en", @details=[], @percent=100, @score=49.43273905996759>]
 >> language.details.first.percent
 => 100
 >> language.details.first.score
@@ -61,7 +61,7 @@ which provides `Article#language` method using `Article#to_s` method as paramete
 ```ruby
 >> article = Article.new :title => "Web development that doesn't hurt", :content => "Tens of thousands of Rails applications are already live..."
 >> article.language
-=> {:name=>"ENGLISH", :code=>"en", :reliable=>true, :text_bytes=>93, :details=>[{:name=>"ENGLISH", :code=>"en", :percent=>100, :score=>80.22690437601297}]}
+=> #<LanguageDetection::Language:0x007fae049dd8e8 @name="english", @code="en", @reliable=true, @text_bytes=93, @details=[#<LanguageDetection::Language:0x007fae049dd118 @name="english", @code="en", @details=[], @percent=100, @score=80.22690437601297>]>
 ```
 
 or you can add `String#language` method by `require 'language_detection/string'`
@@ -72,7 +72,7 @@ or you can add `String#language` method by `require 'language_detection/string'`
 >> require 'language_detection/string'
 => true
 >> "Web development that doesn't hurt".language
-=> {:name=>"ENGLISH", :code=>"en", :reliable=>true, :text_bytes=>36, :details=>[{:name=>"ENGLISH", :code=>"en", :percent=>100, :score=>39.70826580226905}]}
+=> #<LanguageDetection::Language:0x007fae049cfec8 @name="english", @code="en", @reliable=true, @text_bytes=36, @details=[#<LanguageDetection::Language:0x007fae049cf7e8 @name="english", @code="en", @details=[], @percent=100, @score=39.70826580226905>]>
 ```
 
 
