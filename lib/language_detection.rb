@@ -1,6 +1,6 @@
 require "language_detection/version"
+require "language_detection/language"
 require "ffi"
-require "hashr"
 
 module LanguageDetection
 
@@ -10,12 +10,11 @@ module LanguageDetection
     result             = language_detection(text.to_s, is_plain_text)
 
     language           = parse_result(result, result.members - [:details])
-    language[:details] = []
 
-    details = FFI::Pointer.new(LanguageDetection::Detail, result[:details])
+    details = FFI::Pointer.new(LanguageDetection::DetailStruct, result[:details])
     3.times do |i|
-      detail = parse_result(LanguageDetection::Detail.new(details[i]))
-      language[:details] << detail unless detail.code == 'un'
+      detail = parse_result(LanguageDetection::DetailStruct.new(details[i]))
+      language.details << detail unless detail.code == 'un'
     end
 
     language
@@ -28,19 +27,19 @@ module LanguageDetection
   private
 
   def self.parse_result(result, members = result.members)
-    Hashr.new(Hash[ members.map {|member| [member.to_sym, result[member]]} ])
+    Language.new(Hash[ members.map {|member| [member.to_sym, result[member]]} ])
   end
 
   extend FFI::Library
 
-  class Detail < FFI::Struct
+  class DetailStruct < FFI::Struct
     layout :name,    :string,
            :code,    :string,
            :percent, :int,
            :score,   :double
   end
 
-  class Language < FFI::Struct
+  class LanguageStruct < FFI::Struct
     layout :name,       :string,
            :code,       :string,
            :reliable,   :bool,
@@ -49,6 +48,6 @@ module LanguageDetection
   end
 
   ffi_lib File.expand_path("../../ext/cld/cld.so", __FILE__)
-  attach_function "language_detection","language_detection", [:buffer_in, :bool], Language.by_value
+  attach_function "language_detection","language_detection", [:buffer_in, :bool], LanguageStruct.by_value
 
 end

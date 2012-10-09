@@ -7,24 +7,23 @@ class LanguageDetectionTest < Test::Unit::TestCase
 
   context "Language detection" do
 
-    should "be able to convert result from native call to Hashr instance" do
+    should "be able to convert result from native call to Language instance" do
       result        = LanguageDetection.language_detection("this is some text", false)
       parsed_result = LanguageDetection.parse_result(result)
 
-      assert_kind_of LanguageDetection::Language, result
-      assert_kind_of Hashr, parsed_result
+      assert_kind_of LanguageDetection::LanguageStruct, result
+      assert_kind_of LanguageDetection::Language, parsed_result
 
       assert_equal "ENGLISH", parsed_result.name
-      assert_nil   parsed_result.non_existing_property
     end
 
-    should "convert details from FFI pointer to Hashr instance" do
+    should "convert details from FFI pointer to Language instance" do
       language = LanguageDetection.perform("this is some text")
 
-      assert_kind_of Array,   language.details
-      assert_kind_of Hashr,   language.details.first
       assert_equal "ENGLISH", language.details.first.name
-      assert_equal 65,        language.details.first.percent
+      assert_kind_of Array,                       language.details
+      assert_kind_of LanguageDetection::Language, language.details.first
+      assert_equal 65,                            language.details.first.percent
     end
 
     should "recognize languages in testing data" do

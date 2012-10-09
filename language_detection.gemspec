@@ -19,7 +19,6 @@ Gem::Specification.new do |gem|
   gem.extensions    = ["ext/cld/extconf.rb"]
 
   gem.add_dependency "ffi"
-  gem.add_dependency "hashr"
   gem.add_dependency "rake"
 
   gem.add_development_dependency "shoulda"
