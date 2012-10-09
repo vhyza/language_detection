@@ -14,15 +14,15 @@ class LanguageDetectionTest < Test::Unit::TestCase
       assert_kind_of LanguageDetection::LanguageStruct, result
       assert_kind_of LanguageDetection::Language, parsed_result
 
-      assert_equal "ENGLISH", parsed_result.name
+      assert_equal "english", parsed_result.name
     end
 
     should "convert details from FFI pointer to Language instance" do
       language = LanguageDetection.perform("this is some text")
 
-      assert_equal "ENGLISH", language.details.first.name
       assert_kind_of Array,                       language.details
       assert_kind_of LanguageDetection::Language, language.details.first
+      assert_equal "english",                     language.details.first.name
       assert_equal 65,                            language.details.first.percent
     end
 
@@ -66,7 +66,7 @@ class LanguageDetectionTest < Test::Unit::TestCase
 
     should "return detected language" do
       language = @article.language
-      assert_equal "ENGLISH", language.name
+      assert_equal "english", language.name
       assert_equal true,      language.reliable
       assert_equal 100,       language.details.first.percent
     end

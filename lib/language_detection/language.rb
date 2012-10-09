@@ -10,6 +10,7 @@ module LanguageDetection
       end
 
       @details ||= []
+      @name.downcase!
     end
 
   end
