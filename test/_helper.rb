@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'test/unit'
 require 'shoulda'
 require 'turn' unless ENV["TM_FILEPATH"] || ENV["CI"]
-require 'mocha'
+require 'mocha/test_unit'
 require File.join(File.expand_path('../../lib/language_detection.rb', __FILE__))
 
 class Test::Unit::TestCase

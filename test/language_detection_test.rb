@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require '_helper'
+require './test/_helper'
 require 'csv'
 
 class LanguageDetectionTest < Test::Unit::TestCase
