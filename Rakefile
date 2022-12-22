@@ -7,7 +7,7 @@ desc "Compile extension"
 task :compile do
   path = File.expand_path("ext/cld/cld.so", File.dirname(__FILE__))
 
-  if !File.exists?(path) || ENV['RECOMPILE']
+  if !File.exist?(path) || ENV['RECOMPILE']
     puts "Compiling extension..."
     `cd #{File.expand_path("ext/cld/")} && make`
   else
