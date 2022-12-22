@@ -22,7 +22,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.extensions    = ["ext/cld/extconf.rb"]
 
-  gem.add_dependency "ffi"
+  gem.add_runtime_dependency "ffi", "~> 1.12"
 
   gem.add_development_dependency "rake", "~> 13"
   gem.add_development_dependency "shoulda", "~> 4"
