@@ -23,10 +23,10 @@ Gem::Specification.new do |gem|
   gem.extensions    = ["ext/cld/extconf.rb"]
 
   gem.add_dependency "ffi"
-  gem.add_dependency "rake"
 
   gem.add_development_dependency "shoulda", "3.6.0"
   gem.add_development_dependency "mocha", "1.9.0"
   gem.add_development_dependency "turn", "0.9.7"
   gem.add_development_dependency "test-unit", "3.3.3"
+  gem.add_development_dependency "rake", "~> 13"
 end
