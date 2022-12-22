@@ -10,7 +10,10 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
   gem.email         = ["vhyza@vhyza.eu"]
   gem.description   = %q{Ruby bindings for Chromium Compact Language Detector}
-  gem.summary       = %q{Ruby bindings for Chromium Compact Language Detector}
+  gem.summary       = <<-EOF
+    Ruby bindings for Chromium Compact Language Detector ([source](http://src.chromium.org/viewvc/chrome/trunk/src/third_party/cld/)).
+    This gem is using source codes from [chromium-compact-language-detector](http://code.google.com/p/chromium-compact-language-detector/) port.
+  EOF
   gem.homepage      = "https://github.com/vhyza/language_detection"
 
   gem.files         = `git ls-files`.split($/)
