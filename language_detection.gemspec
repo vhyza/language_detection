@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.name          = "language_detection"
   gem.version       = LanguageDetection::VERSION
   gem.authors       = ["Vojtech Hyza"]
+  gem.license       = 'MIT'
   gem.email         = ["vhyza@vhyza.eu"]
   gem.description   = %q{Ruby bindings for Chromium Compact Language Detector}
   gem.summary       = %q{Ruby bindings for Chromium Compact Language Detector}
