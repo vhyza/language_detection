@@ -29,5 +29,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "mocha", "~> 2"
   gem.add_development_dependency "test-unit", "~> 3"
 
-  gem.required_ruby_version = [ ">= 2.5.0", "< 3.3.0" ]
+  gem.required_ruby_version = [ ">= 2.5.0", "< 3.5" ]
 end
