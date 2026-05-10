@@ -31,4 +31,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "csv", "~> 3"
 
   gem.required_ruby_version = [ ">= 2.5.0", "< 3.5" ]
+  gem.required_ruby_version = [ ">= 3.0.0" ]
 end
