@@ -24,12 +24,16 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency "ffi", "~> 1.17"
 
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.4.0')
+    gem.add_dependency 'logger'
+    gem.add_development_dependency "csv", "~> 3"
+    gem.add_development_dependency 'bigdecimal', "~> 3"
+  end
+
   gem.add_development_dependency "rake", "~> 13"
   gem.add_development_dependency "shoulda", "~> 4"
   gem.add_development_dependency "mocha", "~> 2"
   gem.add_development_dependency "test-unit", "~> 3"
-  gem.add_development_dependency "csv", "~> 3"
 
-  gem.required_ruby_version = [ ">= 2.5.0", "< 3.5" ]
   gem.required_ruby_version = [ ">= 3.0.0" ]
 end
